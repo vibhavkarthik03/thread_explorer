@@ -1,0 +1,29 @@
+name: thread_explorer
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # state data_management:
+  flutter_bloc: ^9.1.1
+
+  #network
+  http: ^1.6.0
+
+  #UI
+  flutter_widget_from_html: ^0.16.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
