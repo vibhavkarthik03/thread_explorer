@@ -10,6 +10,15 @@ A high-performance discussion thread viewer supporting:
 
 ---
 
+## Demo
+
+
+
+https://github.com/user-attachments/assets/7a771b9b-67e9-460b-a320-e838efbc4ac8
+
+
+---
+
 ## Idea/Solution
 
 Note: The comments API doesn't support pagination and fields that highlights deleted or dead comments.
