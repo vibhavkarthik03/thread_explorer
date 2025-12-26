@@ -12,7 +12,7 @@ A high-performance discussion thread viewer supporting:
 
 ## Idea/Solution
 
-Note: The comments API doesn't support pagination and fields that highlights deleted comments.
+Note: The comments API doesn't support pagination and fields that highlights deleted or dead comments.
 
 > **Keep the full tree in memory, but render only what is visible.**
 
@@ -74,16 +74,18 @@ Rest of list remains intact.
 
 ### Feature-based + Clean Architecture
 
+```text
 lib/
-└─ features/
-└─ threads/
-├─ data/
-│ ├─ models/ → DTOs
-│ └─ repository/ → API / Remote access
-│
-├─ presentation/
-│ ├─ bloc/ → State management
-│ ├─ screens/ → Screens
-│ └─ widgets/ → UI Components
-│
-└─ utils/ → Shared helpers
+ └─ features/
+     └─ threads/
+         ├─ data/
+         │   ├─ models/
+         │   └─ repository/
+         ├─ presentation/
+         │   ├─ bloc/
+         │   ├─ screens/
+         │   └─ widgets/
+         └─ utils/
+```
+
+---

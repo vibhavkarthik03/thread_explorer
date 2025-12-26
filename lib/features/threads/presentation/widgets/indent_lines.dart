@@ -21,12 +21,12 @@ class IndentLines extends StatelessWidget {
             painter: _IndentPainter(
               depth: depth,
               indentWidth: indentWidth,
-              lineColor: Colors.grey.shade400,
+              lineColor: Colors.red,
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 4),
+          padding: EdgeInsets.only(left: depth * indentWidth),
           child: child,
         )
       ],
@@ -49,7 +49,7 @@ class _IndentPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = lineColor
-      ..strokeWidth = 1.5;
+      ..strokeWidth = 1.1;
 
     for (int i = 0; i < depth; i++) {
       final x = (i * indentWidth) + indentWidth / 2;

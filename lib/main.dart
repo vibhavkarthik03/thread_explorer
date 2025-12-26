@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thread_explorer/features/threads/presentation/screens/threads_screen.dart';
+import 'package:thread_explorer/features/threads/presentation/screens/thread_screen.dart';
 
 void main() {
   runApp(const ThreadExplorer());

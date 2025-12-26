@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thread_explorer/features/threads/data/models/comment.dart';
-import 'package:thread_explorer/features/threads/data/repository/threads_remote_remote_repository.dart';
-import 'package:thread_explorer/features/threads/presentation/bloc/threads_event.dart';
-import 'package:thread_explorer/features/threads/presentation/bloc/threads_state.dart';
+import 'package:thread_explorer/features/threads/data/repository/threads_remote_repository.dart';
+import 'package:thread_explorer/features/threads/presentation/bloc/thread_event.dart';
+import 'package:thread_explorer/features/threads/presentation/bloc/thread_state.dart';
 
 class ThreadBloc extends Bloc<ThreadEvent, ThreadState> {
   late Comment rootComment;
@@ -15,7 +15,7 @@ class ThreadBloc extends Bloc<ThreadEvent, ThreadState> {
 
    Future<void> _onLoad(LoadThread event, Emitter emit) async {
     final threadsRepo = ThreadsRemoteRepository();
-    rootComment = await threadsRepo.getCommentsForStory(storyId: 46368946);
+    rootComment = await threadsRepo.getCommentsForStory(storyId: event.storyId);
     // added clear as precaution to avoid duplicates (if any)
     visible
       ..clear()
@@ -24,6 +24,10 @@ class ThreadBloc extends Bloc<ThreadEvent, ThreadState> {
   }
 
   void _onToggle(ToggleExpand event, Emitter emit) {
+
+    // Ignore if no children
+    if (event.comment.children.isEmpty) return;
+
     final comment = event.comment;
     comment.isExpanded = !comment.isExpanded;
 
@@ -42,6 +46,7 @@ class ThreadBloc extends Bloc<ThreadEvent, ThreadState> {
 
     final children = _flattenChildren(comment, comment.depth + 1);
 
+    // children comments depth are +1 from their parent comment.
     visible.insertAll(parentIndex + 1, children);
   }
 
