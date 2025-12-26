@@ -79,6 +79,20 @@ Rest of list remains intact.
 
 ---
 
+## Performance analysis
+
+Frames:
+
+
+https://github.com/user-attachments/assets/9fa8a7d8-230f-4b39-9c15-ebe7cc456db2
+
+Memory:
+
+https://github.com/user-attachments/assets/dd15b98a-9eee-4460-9218-9c6a546525b5
+
+
+---
+
 ## Architecture
 
 ### Feature-based + Clean Architecture
